@@ -1,0 +1,129 @@
+:root{
+
+    --azul-escuro: #06132f;
+    --azul-claro: #00a8ff;
+    --branco: #DCD9C9;
+    --cinza: #808080;
+    --cinza-claro: #e4e4e4;
+    --verde-claro:#0e7026;
+    --fonte-padrao: Arial, Helvetica, sans-serif;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: var(--fonte-padrao)
+}
+
+
+.cabeçalho__titulo{
+    text-align: center;
+    padding: 1em 0;
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    
+
+}
+
+.containerPrincipal{
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    box-shadow: 2px 1px 8px 1px var(--cinza);
+    width: 80%;
+    height: 60vh;
+    margin: 3em auto;
+    padding: 3em;
+    position: relative;
+}
+.containerPrincipal__botaoDeCadastro{
+    padding: 1em 2em;
+    background-color: var(--azul-claro);
+    color: var(--branco);
+    font-size: 1.2em;
+    font-weight:bolder;
+    border: none;
+    box-shadow: 2px 1px 8px 1px var(--cinza);
+    margin-bottom: 2em;
+    cursor: pointer;
+    
+}
+.tabela{
+    display: flex;
+    flex-direction: column;
+}
+.tabela__linha{
+    
+    font-size: 1.2em;
+}
+.tabela__cabeçalho{
+    color: var(--branco);
+    background-color: var(--azul-escuro);
+    width: 190px;
+    padding: 0.8em 1.2em;
+    text-align: left;
+}
+
+
+/*Cadastro de Cliente*/
+.containerPrincipal__cadastro{
+    display: none;
+    width: 50%;
+    height: 290px;
+    margin: auto;
+    box-shadow: 2px 1px 8px 1px var(--cinza);
+    background-color: var(--cinza-claro);
+    position: absolute;
+    top: 28%;
+    left:  50%;
+    transform: translate(-50%, -50%);
+    right: center center;
+    
+
+
+
+}
+.cadastro__titulo{
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    text-align: center;
+    font-weight: lighter;
+    padding: 0.5em;
+}
+.cadastro__formulario{
+    padding: 2.5em 1em 0 1em;
+    display: flex;
+    flex-direction: column;
+    
+    row-gap: 2em;
+}
+.formulario__linhaUm, .formulario__linhaDois{
+    display: flex;
+    justify-content: center;
+   column-gap: 1em;
+}
+
+.formulario__entrada{
+    width: 45%;
+    height: 40px;
+    
+   
+}
+.formulario__botão{
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.5em;
+}
+.botão__salvar, .botão__cancelar{
+    width: 120px;
+    height: 40px;
+    border: none;
+    color: white;
+    
+}
+.botão__salvar{
+    background-color: var(--verde-claro);
+}
+.botão__cancelar{
+    background-color: red;
+}

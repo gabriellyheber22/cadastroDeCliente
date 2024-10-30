@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="cabeçalho">
+        <h1 class="cabeçalho__titulo">Cadastro de Clientes</h1>
+    </header>
+    <main class="containerPrincipal">
+        <button type="button" class="containerPrincipal__botaoDeCadastro" onclick="cadastroCliente()">Cadastrar
+            Cliente</button><br>
+        <div class="containerPrincipal__cadastro">
+            <h2 class="cadastro__titulo">Novo Cliente</h2>
+            <span></span> <!--Colocar icone de fechar-->
+            <form action="#" method="post" class="cadastro__formulario">
+                <div class="formulario__linhaUm">
+                    <input class="formulario__entrada" type="text" id="nome" placeholder="Nome do Cliente">
+                    <input class="formulario__entrada" type="email" id="email" placeholder="E-mail">
+                </div>
+                <div class="formulario__linhaDois">
+                    <input class="formulario__entrada" type="number" id="telefone" placeholder="Celular do Cliente"
+                        maxlength="13">
+                    <input class="formulario__entrada" type="text" id="cidade" placeholder="Cidade do Cliente">
+                </div>
+                <div class="formulario__botão">
+                    <button type="button" class="botão__salvar" id="salvar" onclick="salva()">Salvar</button>
+                    <button type="button" class="botão__cancelar" id="cancelar" onclick="cancela()">Cancelar</button>
+                </div>
+
+            </form>
+
+        </div>
+        <table class="containerPrincipal__tabela">
+            <colgroup>
+            <col style="width: 180px; span: 2">
+            </colgroup>
+            <thead class="tabela__linha">
+                <tr class="linhaCabeçalho">
+                    <th class="tabela__cabeçalho">Nome</th>
+                    <th class="tabela__cabeçalho">E-mail</th>
+                    <th class="tabela__cabeçalho">Celular</th>
+                    <th class="tabela__cabeçalho">Cidade</th>
+                    <th class="tabela__cabeçalho">Ação</th>
+                </tr>
+            </thead>
+            <tbody id="bodyTabela">
+
+            </tbody>
+        </table>
+    </main>
+    <script>
+        var containerCadastro;
+        //função DOMContentLoaded --> Ele é disparado quando o documento HTML inicial foi completamente carregado e analisado, sem esperar que folhas de estilo, imagens e subframes sejam completamente carregados
+        document.addEventListener("DOMContentLoaded", function () {
+            containerCadastro = document.getElementsByClassName('containerPrincipal__cadastro')[0];
+        });
+        // Função de abrir e Fechar o container de Cadastro
+        function cadastroCliente() {
+            // styleCadastro:  Verifica o estilo computado do elemento, ou seja, 
+            //verifica o estilo definido tanto Inline, quanto no CSS
+            var styleCadastro = window.getComputedStyle(containerCadastro);
+            if (styleCadastro.display === "none") {
+                containerCadastro.style.display = "block";
+            } else {
+                containerCadastro.style.display = "none";
+            }
+        }
+        function salva(){
+            //Pegando as informações de entrada do Input
+            let nomeInput = document.getElementById('nome');
+            let nome = nomeInput.value;
+            let emailInput = document.getElementById('email');
+            let email = emailInput.value;
+            let celularInput = document.getElementById('telefone');
+            let celular = celularInput.value;
+            let cidadeInput = document.getElementById('cidade');
+            let cidade = cidadeInput.value;
+
+            // Pegando a informação da estrutura do corpo da tabela
+            let corpoTabela = document.getElementById('bodyTabela');
+
+            //Criando a nova linha de informações
+            let novaLinha = document.createElement('tr');
+
+            //Criando uma cédula da linha da tabela
+            let celulaNome = document.createElement('td');
+            celulaNome.textContent = nome;
+            let celulaEmail = document.createElement('td');
+            celulaEmail.textContent = email;
+            let celulaCelular = document.createElement('td');
+            celulaCelular.textContent = celular;
+            let celulaCidade = document.createElement('td');
+            celulaCidade.textContent = cidade;
+            
+           
+
+            //Adicionando as celulas a linha da tabela
+            novaLinha.appendChild(celulaNome);
+            novaLinha.appendChild(celulaEmail);
+            novaLinha.appendChild(celulaCelular);
+            novaLinha.appendChild(celulaCidade);
+            novaLinha.appendChild(botoes);
+
+            //Adicionando a nova linha ao corpo da tabela
+            corpoTabela.appendChild(novaLinha);
+
+            //Deixando o campo de entrada Limpo
+            nomeInput.value = "";
+            emailInput.value = "";
+            celularInput.value = "";
+            cidadeInput.value = "";
+            cadastroCliente();
+        }
+
+        function criaBotão(){
+            let botaoEditar =document.createElement('button');
+            botaoEditar.textContent = 'Editar';
+
+            let botaoExcluir =document.createElement('button');
+            botaoEditar.textContent = 'Excluir';
+        }
+
+        function cancela() {
+            containerCadastro.style.display = "none";
+        }
+
+    </script>
+</body>
+
+</html>
