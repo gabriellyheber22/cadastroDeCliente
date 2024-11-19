@@ -63,6 +63,9 @@
     padding: 0.8em 1.2em;
     text-align: left;
 }
+.coluna__id{
+    display: none;
+}
 
 
 /*Cadastro de Cliente*/
@@ -119,6 +122,7 @@
     height: 40px;
     border: none;
     color: white;
+    font-size: 1em;
     
 }
 .botão__salvar{
@@ -126,4 +130,21 @@
 }
 .botão__cancelar{
     background-color: red;
+}
+/*Botão da coluna Ação*/
+.botaoEditar, .botaoExcluir{
+    padding: 0.5em 1.2em;
+    align-items: center;
+    font-size: 1em;
+    border: none;
+    color: white;
+    margin: 0.5em;
+
+}
+.botaoEditar{
+    background-color: green;
+}
+.botaoExcluir{
+    background-color: red;
+    
 }
